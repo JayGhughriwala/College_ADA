@@ -3,7 +3,7 @@ using namespace std;
 // Now creating a function for printing a array
 
 // Now creating global varible for the time
-double time_for_selection = 0;
+float time_for_selection = 0;
 void PrintElements(int array[], int size)
 {
     cout << "\n\tPrinting a Elements \n";
@@ -57,5 +57,5 @@ int main()
     PrintElements(Array, size);
     cout << "After Sorting --> \n";
     PrintElements(Array, size);
-    printf("Time Taken by the selection sort is  %.3lf SECONDS", time_for_selection);
+    printf("Time Taken by the selection sort is  %.3f SECONDS", time_for_selection);
 }

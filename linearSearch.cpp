@@ -1,10 +1,24 @@
 #include<iostream>
 using namespace std;
+double timetaken=0;
 int linearSearch(int value)
 {
-    int array[] = {0,1,2,3,4,5,6,7,11 ,11,1,122,1200,13232,12};
+    int array[1000];
     short index=0;
     bool flag = false;
+ 
+    srand(time(NULL));
+
+    for(int i=0;i<1000;i++)
+    {
+        array[i] = rand()%10000;
+    }
+     for(int i=0;i<1000;i++)
+    {
+        cout<<array[i]<<" ";
+    }
+    
+    clock_t now = clock();
     for(int i=0;i<(sizeof(array)/sizeof(array[0]));i++)
     {
         if(array[i]==value)
@@ -14,6 +28,8 @@ int linearSearch(int value)
                 break;
             }
     }
+    now = clock() - now;
+    timetaken=double(now)/CLOCKS_PER_SEC;
     if (flag==true)
         return index;
     else
@@ -28,7 +44,11 @@ int main()
     cin>>value;
     int ind = linearSearch(value);
     if (ind)
-        cout<<"Element found at the index \n"<<ind;
+      
+      {  cout<<"Element found at the index \n"<<ind;
+        cout<<"\nTime taken "<<timetaken<<endl;}
     else
-        cout<<"Element not found\n";
+       {cout<<"\nElement not found\n";
+       cout<<"\nTime taken "<<timetaken<<endl;
+       }
 }
